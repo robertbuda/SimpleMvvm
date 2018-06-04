@@ -1,5 +1,6 @@
 package com.rb.simplemvvm.db;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -13,7 +14,7 @@ import java.util.List;
 public interface PersonDao {
 
     @Query("SELECT * FROM table_persons ORDER BY person_id")
-    List<Person> getAllPersons();
+    LiveData <List<Person>> getAllPersons();
 
     @Insert
     void insertPerson (Person person);
